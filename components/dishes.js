@@ -15,6 +15,8 @@ function Dishes({restId}){
   const [restaurantID, setRestaurantID] = useState()
   const {addItem} = useContext(AppContext)
 
+  const BE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
 const GET_RESTAURANT_DISHES = gql`
   query($id: ID!) {
     restaurant(id: $id) {
@@ -55,7 +57,7 @@ const GET_RESTAURANT_DISHES = gql`
                 <CardImg
                   top={true}
                   style={{ height: 150, width:150 }}
-                  src={`http://localhost:1337${res.image.url}`}
+                  src={`${BE_URL}${res.image.url}`}
                 />
                 <CardBody>
                   <CardTitle><b>{res.name}</b></CardTitle>
