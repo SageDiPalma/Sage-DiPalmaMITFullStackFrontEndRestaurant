@@ -38,6 +38,8 @@ function RestaurantList(props) {
   if (!data) return <p>Not found</p>;
   console.log(`Query Data: ${data.restaurants}`)
 
+  const BE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+
 
   let searchQuery = data.restaurants.filter((res) => {
     console.log(res);
@@ -60,7 +62,7 @@ function RestaurantList(props) {
             top={true}
             style={{ height: 200 }}
             src={
-              `http://localhost:1337` + res.image.url
+              `${BE_URL}` + res.image.url
             }
           />
           <CardBody>
