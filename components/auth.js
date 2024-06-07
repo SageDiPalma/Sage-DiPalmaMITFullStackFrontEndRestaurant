@@ -18,7 +18,7 @@ export const registerUser = (username, email, password) => {
       .post(`${API_URL}/auth/local/register`, { username, email, password })
       .then((res) => {
         //set token response from Strapi for server validation
-        Cookie.set("token", res.data.jwt);
+        // Cookie.set("token", res.data.jwt);
 
         //resolve the promise to set loading to false in SignUp form
         resolve(res);
