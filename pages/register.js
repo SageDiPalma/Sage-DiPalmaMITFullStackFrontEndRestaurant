@@ -39,6 +39,7 @@ const Register = () => {
         // appContext.setUser(res.data.user);
         setSuccess("Registration successful!. Please sign in to start your session.");
         setLoading(false);
+        setData({ email: "", username: "", password: "" })
       })
       .catch((error) => {
         setError("Registration failed. " +  error.response.data.message);
